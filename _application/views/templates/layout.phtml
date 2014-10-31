@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php echo(@$title ? $title .' - ' : false) ?>File Share</title>
+    <?php echo link_tag('css/screen.css'); ?>
+</head>
+<body>
+    <div class="container">
+        <div class="not-footer">
+            <div class="main-header">
+                <header>
+                    <div id="blue-square"></div>
+                    <h1><?php echo anchor("/",'Blue Square Online') ?></h1><?php echo(@$title ? '<h3>: ' . $title . '</h3>' : '') ?>
+                </header>
+                <nav>
+                    <ul>
+                        <?php
+                        if ($this->session->is_validated()) :
+                            echo '<li>' . anchor('/','Manage Files') . '</li>';
+                        elseif ($this->session->is_validated()) :
+                            echo '<li>' . anchor('/','My Files') . '</li>';
+                        endif;
+                        
+                        if ($this->session->is_validated(40)) :
+                            echo '<li>' . anchor('user/manage','Manage Users') . '</li>';
+                        endif;
+                        
+                        if ($this->session->is_validated()) :
+                            echo '<li>' . anchor("user/edit/{$this->session->userdata('id')}",'My Account') . '</li>';
+                        endif;
+                        ?>
+                    </ul>
+                </nav>
+            </div> <!-- /main-header -->
+            <div class="main-messages">
+                <?php
+                if ( ! empty($messages)):
+                    echo '<div class="messages-container">';
+                        foreach ($messages AS $type => $messages):
+                            echo "<ul class='{$type}-messages'>";
+                            foreach ($messages AS $message):
+                                echo "<li>$message</li>";
+                            endforeach;
+                            echo '</ul>';
+                        endforeach;
+                    echo '</div>';
+                endif;
+                ?>
+            </div> <!-- /main-messages -->
+            <div class="main-content">
+                <?php echo($layout_content); ?>
+                <footer class="little-footer">
+                </footer>
+            </div> <!-- /main-content -->
+        </div> <!-- /not-footer -->
+        <div class="main-footer">
+            <span><?php echo @$me['username']? 'Signed in as ' . anchor("user/edit/{$me['id']}", $me['username']) . ' : ' . anchor('user/logout','sign out') : FALSE; ?></span>
+            <span class="copyright">&copy; Blue Square Construction 2014</span>
+        </div> <!-- /main-footer -->
+    </div> <!-- /container -->
+</body>
+</html>

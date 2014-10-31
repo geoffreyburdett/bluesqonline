@@ -1,0 +1,50 @@
+<div id="outsideContainer" style="width:600px; margin:0 auto;">
+    <table width="600" cellpadding:"0" border:"0" cellspacing="0" syle="width:600px; padding:0; border:0; margin:0;">
+        <tr>
+            <td colspan="3" id="header" width="600" height="40" align="center" valign="middle" bgcolor="#0000dd" style="width:600px; height:25px; text-align:center; vertical-align:middle; background-color:#0000dd;">
+                <h3 color="#ffffff" style="padding:0; border:0; margin:0; color:#ffffff;"><?php echo ( @$header_title ? $header_title : 'Message from Blue Square Construction') ?></h3>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="h_spacer" width="600" height="10" align="center" valign="middle" style="width:600px; height:10px; text-align:center; vertical-align:middle;">
+            </td>
+        </tr>
+        <tr>
+            <td class="v_spacer" width="10" align="center" valign="middle" style="width:10px;">
+            </td>
+            <td id="content" width="600" align="left" valign="top" style="width:600px; text-align:left; vertical-align:top;">
+                <span style="font-family:'Centry Gothic', Helvetica Neue, Helvetica, Arial, sans-serif; color:#666666;">
+                    <font face="Centry Gothic, Helvetica Neue, Helvetica, Arial, sans-serif" color="#666666">
+                        <?php echo ( @$to_name ? $to_name . ',<br><br>' : FALSE) ?>
+                        <?php echo ( @$layout_content ? $layout_content : FALSE) ?>
+                        <?php echo ( @$content ? $content : FALSE) ?>
+                        <br><br>
+                        Sincereley,<br>
+                        Blue Square Construction Team
+                    </font>
+                </span>
+            </td>
+            <td class="v_spacer" width="10" align="center" valign="middle" style="width:10px;">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="h_spacer" width="600" height="10" align="center" valign="middle" style="width:600px; height:10px; text-align:center; vertical-align:middle;">
+            </td>
+        </tr>
+        <tr>
+            <td class="v_spacer" width="10" align="center" valign="middle" style="width:10px;">
+            </td>
+            <td id="footer" width="600" align="left" valign="top" style="width:600px; border-top:1px solid #666666; text-align:left; vertical-align:top;">
+                <span style="font-family:'Centry Gothic', Helvetica Neue, Helvetica, Arial, sans-serif; color:#666666;">
+                    <font face="Centry Gothic, Helvetica Neue, Helvetica, Arial, sans-serif" color="#666666">
+                        <a href="http://bluesquare-construction.com/">www.bluesquare-construction.com</a><br><br>
+                        770 - 845 - 0900<br><br>
+                        818 Bermuda Run,<br>Woodstock, Ga 30189 
+                    </font>
+                </span>
+            </td>
+            <td class="v_spacer" width="10" align="center" valign="middle" style="width:10px;">
+            </td>
+        </tr>
+    </table>
+</div>

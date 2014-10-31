@@ -1,0 +1,9 @@
+<?php echo form_open("user/delete/" . $user->id); ?>
+
+<h2>Are you sure you want to delete <?php echo @$user->first_name . ' ' . @$user->last_name; ?>?</h2>
+
+<input type="hidden" name="id" value="<?php echo set_edit_value('id',@$user); ?>" /><br />
+<input type="submit" name='<?php echo 'confirm_delete_' . $user->id; ?>' value="Yes" />
+<?php echo anchor('user/edit/' . @$user->id,'<button type="button">No</button>'); ?> 
+</form>
+

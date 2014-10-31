@@ -1,0 +1,38 @@
+<?php
+    if ($this->session->is_validated(30)) :
+        echo anchor('fileshare/edit/','<button class="small">Add New File</button>');
+    endif;
+?>
+
+<table id="file-list" class="full-width">
+    <tr>
+        <th scope="col">File Name</th>
+        <th scope="col">Last Update</th>
+        <th scope="col">Visibility</th>
+        <th scope="col">Download</th>
+    </tr>
+    <?php
+    
+    if ( empty($files) ) echo 'There are no files available to view.';
+    
+    foreach ($files as $file):
+    
+        $file->updated_by = $file->timestamp;
+        if ($file->updatedby_first || $file->updatedby_last):
+            $file->updated_by .= "<br />by {$file->updatedby_first} {$file->updatedby_last}";
+        endif;
+        
+        if ($file->visibility != 'all' && $file->visibility != 'none'):
+            $file->visibility = "{$file->visibility_first} {$file->visibility_last}";
+        endif;
+        
+    ?>
+        <tr class="clickable">
+            <td><?php echo is_auth($me,30)?  anchor('fileshare/edit/' . $file->id, $file->filename  ) : $file->filename;   ?></td>
+            <td><?php echo is_auth($me,30)?  anchor('fileshare/edit/' . $file->id, $file->updated_by) : $file->updated_by; ?></td>
+            <td><?php echo is_auth($me,30)?  anchor('fileshare/edit/' . $file->id, $file->visibility) : $file->visibility; ?></td>
+            <td><?php echo anchor('fileshare/download/' . $file->id, 'download', 'class="download"'); ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+

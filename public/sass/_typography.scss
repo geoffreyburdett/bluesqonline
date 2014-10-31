@@ -1,0 +1,83 @@
+@include establish-baseline;
+@import url(http://fonts.googleapis.com/css?family=Muli:700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700);
+body,
+h1, h2, h3, h4, h5, h6,
+p, span, blockquote,
+pre, a, abbr, acronym, address, cite, code,
+del, dfn, em, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+table, caption, tbody, tfoot, thead, tr, th, td,
+input, select{
+    font-size: $base-font-size;
+    font-family: Muli, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    color: $light-text; 
+}
+
+p{
+    @include trailer();  
+}
+
+h1, h2, h3, h4, h5, h6{
+    @include leader(); 
+    color: $header-color; 
+}
+
+h1, h2, h3, h4, h5, h6, legend, th{
+    font-weight: bold;
+    font-family: "Open Sans Condensed", Muli, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+
+ul, ol, dl{ 
+    @include trailer(); 
+}
+
+h1{
+    @include adjust-font-size-to($base-font-size + 10px);
+}
+
+h2, legend{
+    @include adjust-font-size-to($base-font-size + 8px);
+}
+
+form h2, legend{
+    border-top: $border;
+}
+
+h3{
+    @include adjust-font-size-to($base-font-size + 6px);
+}
+
+h4, th{
+    @include adjust-font-size-to($base-font-size + 4px);
+}
+
+h5{
+    @include adjust-font-size-to($base-font-size + 2px);
+}
+
+h6{
+    @include adjust-font-size-to($base-font-size);
+}
+
+a{
+    text-decoration: none;
+    color: $link-color;
+}
+
+a:visited{
+    color: $visited-link-color;
+}
+
+a:hover, a:active, a:focus{
+    text-decoration: underline;
+    color: $hover-link-color;
+}
+
+strong{
+    font-weight: bold;
+}
+
+em{
+    font-style: italic;
+}

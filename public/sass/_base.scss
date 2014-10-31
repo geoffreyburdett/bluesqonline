@@ -1,0 +1,69 @@
+@import "compass";
+@import "compass/reset";
+@import "susy";
+@import "breakpoint";
+@import "compass/layout/sticky-footer";
+@import "sassy-buttons";
+ 
+/*SUSY SETTINGS*/
+$susy: (
+  columns: 12,
+  gutters: 1/8
+);
+
+
+/*BREAKPOINTS*/
+$tablet: 600px;
+$computer: 900px;
+
+/*COLORS*/
+
+/*general*/
+$light-background: #eeeeee;
+$light-text: #444444;
+$light-hilight: #0071bc;
+
+$dark-background: #444444;
+$dark-text: #dddddd;
+$dark-hilight: #99bbff;
+
+
+/*header*/
+$header-background: $dark-background;
+$header-color:      $dark-hilight; 
+
+/*links*/
+$link-color:         $light-hilight;
+$visited-link-color: $light-hilight;
+$hover-link-color:   adjust-lightness($light-hilight, 10);
+
+$dark-link-color:         $dark-hilight;
+$dark-visited-link-color: $dark-hilight;
+$dark-hover-link-color:   adjust-lightness($dark-hilight, 10);
+
+/*messages*/
+$success-background:#00a99d;
+$error-background:  #b16666;
+$message-color:     $light-text; 
+
+/*footer*/
+$footer-background: $dark-background;
+$footer-color:      $dark-text; 
+
+$footer-link-color:         $dark-link-color;
+$footer-link-color:         $dark-link-color;
+$footer-visited-link-color: $dark-visited-link-color;
+$footer-hover-link-color:   $dark-hover-link-color;
+
+/*TYPOGRAPHY*/
+$base-font-size: 16px;
+$base-line-height: 22px;
+
+/*SPACING*/
+$gutter: 10px;
+$tablet-gutter: $gutter*2;
+$computer-gutter: $gutter*3;
+
+/* Other */
+$radius: 5px;
+$border: 3px solid #dddddd;

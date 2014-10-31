@@ -1,0 +1,15 @@
+<?php echo anchor('user/edit/','<button class="small">Add New User</button>'); ?>
+<table class="full-width">
+    <tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Access Level</th>
+    </tr>
+<?php foreach($users AS $user){ ?>
+    <tr class="clickable">
+        <td><?php echo anchor("user/edit/$user->id",$user->first_name . ' ' . $user->last_name); ?></td>
+        <td><?php echo anchor("user/edit/$user->id",$user->username); ?></td>
+        <td><?php echo anchor("user/edit/$user->id",access_to_string($user->access_level)); ?></td>
+    </tr>
+<?php } ?>
+</table>

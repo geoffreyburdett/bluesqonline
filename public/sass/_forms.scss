@@ -1,0 +1,104 @@
+form{
+    max-width: 40em;
+    margin: $gutter auto;
+        @include breakpoint($tablet) {
+            margin: $tablet-gutter auto;
+        }
+        @include breakpoint($computer) {
+            margin: $computer-gutter auto;
+        }
+
+    label{
+        display: inline-block;
+        width: 23%;  
+    }
+    
+    input,
+    select,
+    textarea{
+        display: inline-block;
+        width: 75%;
+        padding: $gutter/2;
+            @include breakpoint($tablet) {
+                padding: $tablet-gutter/2;
+            }
+            @include breakpoint($computer) {
+                padding: $computer-gutter/2;
+            }
+        border: solid 2px $dark-text;
+        outline: none;
+        margin-left: 0;
+        color: $light-text;
+        background-color: #ffffff;
+        transition: border-color .1s ease;
+        @include border-radius($radius, $radius);
+    }
+    
+    select{
+        -webkit-appearance: none; 
+        -moz-appearance: none;
+        text-indent: 0;
+        text-overflow: hidden; 
+        background-image: url(/images/select.png);
+        background-position: right center;
+        background-repeat: no-repeat; 
+    }
+    
+    input:focus,
+    select:focus,
+    textarea:focus{
+        outline: none;
+        border-top-color:    adjust-lightness($dark-text, -20);
+        border-right-color:  adjust-lightness($dark-text, +5);
+        border-bottom-color: adjust-lightness($dark-text, +5);
+        border-left-color:   adjust-lightness($dark-text, -20);
+    }
+
+}
+    
+button, 
+input[type=submit]{
+    margin: $gutter/2 0;
+    @include sassy-button("matte", $radius, $base-font-size, adjust-lightness($link-color, +10), $link-color, $dark-text, "inset");
+    outline: none; 
+}
+    
+form button,
+input[type=submit]{
+    width: 100%;
+    margin: $gutter/2 0;
+        @include breakpoint($tablet) {
+            width: 75%;
+            margin: $tablet-gutter/2 0;
+            margin-left: 23%;
+        }
+        @include breakpoint($computer) {
+            width: 75%;
+            margin-left: 23%;
+        }
+}
+
+button:hover,
+input[type=submit]:hover{
+    @include sassy-button("matte", $radius, $base-font-size, $hover-link-color, adjust-lightness($hover-link-color, -10), $dark-text, "inset");
+}
+
+button:active,
+input[type=submit]:active{
+    @include sassy-button-style("inset", $hover-link-color);
+}
+    
+button.danger, 
+input[type=submit].danger{
+    @include sassy-button("matte", $radius, $base-font-size, adjust-lightness($error-background, +10), $error-background, $light-text, "inset");
+}
+
+button.danger:hover,
+input[type=submit].danger:hover{
+    @include sassy-button("matte", $radius, $base-font-size, adjust-lightness($error-background, +20), adjust-lightness($error-background, +10), $light-text, "inset");
+}
+
+button.danger:active,
+input[type=submit].danger:active{
+    @include sassy-button-style("inset", adjust-lightness($error-background, +10));
+}

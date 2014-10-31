@@ -1,0 +1,20 @@
+<form action='<?php echo base_url();?>user/process' method='post' name='process'>
+    <input type="hidden" name="redirect" value="<?php $redirect; ?>" />
+    
+    
+        <h2>Login</h2>
+        
+        <ul>
+            <li>
+                <label for='username'>Username</label>
+                <input type='text' name='username' />
+            </li>
+            <li>
+                <label for='password'>Password</label>
+                <input type='password' name='password' />
+            </li>
+        </ul> 
+    
+
+    <input type='Submit' value='Login' />            
+</form>

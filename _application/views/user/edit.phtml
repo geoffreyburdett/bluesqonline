@@ -1,0 +1,77 @@
+<?php echo form_open("user/edit/" . @$user->id); ?>
+
+    <input type="hidden" name="id" value="<?php echo set_edit_value('id',@$user); ?>" /><br />
+
+        <h2>User Info</h2>
+    
+        <ul>
+            <li>
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name" value="<?php echo set_edit_value('first_name',@$user); ?>" />
+            </li>
+            <li>
+                <label for="last_name">Last Name</label>
+                <input type="text" name="last_name" value="<?php echo set_edit_value('last_name',@$user); ?>" />
+            </li>
+            <li>
+                <label for="username">Username</label>
+                <input type="text" name="username" value="<?php echo set_edit_value('username',@$user); ?>" />
+            </li>
+            <li>
+                <label for="email">Email</label>
+                <input type="text" name="email" value="<?php echo set_edit_value('email',@$user); ?>" />
+            </li>
+            
+            <?php if ($me['id'] !== @$user->id): ?>
+                <li>
+                    <label for="access_level">Access Level</label>
+                    <select name="access_level" value="<?php echo set_edit_value('username',@$user); ?>">
+                      <option value="10"><?php echo access_to_string(10); ?></option>
+                      <option value="20"><?php echo access_to_string(20); ?></option>
+                      <option value="30"><?php echo access_to_string(30); ?></option>
+                      <option value="40"><?php echo access_to_string(40); ?></option>
+                      <option value="50"><?php echo access_to_string(50); ?></option>
+                    </select>
+                </li>
+            <? else: ?>
+                <li>
+                    <input type="hidden" name="access_level" value="<?php echo set_edit_value('access_level',@$user); ?>">
+                </li>
+            <?php endif; ?>
+            <li>
+                <input type="submit" value="Save User Info" />
+            </li>
+ 
+            <?php 
+            if ( $this->session->is_validated(30)
+              || $this->session->userdata('id') === $user->id): ?>
+                <li>
+                    <input type="submit" name="resetPassword" value="Reset Password" />
+                </li>
+            <?php endif; ?>
+            
+        </ul>
+            
+</form>
+
+ 
+<?php 
+if ( @$user->id
+   && $this->session->is_validated(30)
+   && $me['id'] !== $user->id): ?>
+    
+    <?php echo form_open("user/delete/" . $user->id); ?>
+    
+        <input type="hidden" name="id" value="<?php echo set_edit_value('id',@$user); ?>" /><br />
+            
+            <h2>Danger Area</h2>
+        
+            <ul>
+                <li>  
+                    <input type="submit" value="Delete User" class="danger" />
+                </li>
+            </ul>
+                    
+    </form>
+    
+<?php endif; ?>

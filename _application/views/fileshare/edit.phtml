@@ -1,0 +1,31 @@
+
+<?php echo form_open_multipart('fileshare/edit/' . @$filedata->id); ?>
+
+    <input type="hidden" name="id" value="<?php echo set_edit_value('id',@$filedata); ?>" />
+    <input type="hidden" name="updated_by" value="<?php echo $me['id'] ?>" />
+    
+        <h2>File Info</h2>
+        
+        <ul>
+            <li>
+                <label for="filename">File Name</label>
+                <input type="text" name="filename" value="<?php echo set_edit_value('filename',@$filedata); ?>" />
+            </li>
+            <li>
+                <label for="visibility">Visibility</label>
+                <select name="visibility">
+                    <option value="none">none</option>
+                    <option value="all" <?php echo (set_edit_value('visibility',@$filedata) == 'all' ? ' selected="selected"' : false); ?>>all</option>
+                    <?php foreach ($clients AS $client){ ?>
+                        <option value="<?php echo $client->id; ?>" <?php echo (set_edit_value('visibility',@$filedata) == $client->id ? ' selected="selected"' : false ); ?>> <?php echo $client->first_name . ' ' . $client->last_name; ?> </option>
+                    <?php } ?>
+                </select>
+            </li>
+            <li>
+                <label for="upload">Upload File</label>
+                <span class="upload-container"><input type="file" name="upload" /></span>
+            </li>
+        </ul> 
+    
+    <input type="submit" value="Save File Info" />          
+</form>
